@@ -9,7 +9,7 @@ from data.rule.done.rules_done_arrear_trades_between_last_3_to_12_months import 
 from infrastructure.constants import SET_RULES_DONE_ARREAR_TRADES_BETWEEN_LAST_3_TO_12_MONTHS
 from infrastructure.redis_caching import RedisCaching
 # from infrastructure.redis_caching import RedisCaching
-from infrastructure.redis_caching_backup_3 import get_score_of_rules_done_arrear_trades_between_last_3_to_12_months, get_redis_connection
+from infrastructure.backups.redis_caching_backup_3 import get_score_of_rules_done_arrear_trades_between_last_3_to_12_months, get_redis_connection
 from program import create_db_connection
 
 
@@ -139,6 +139,7 @@ class TestRedisCaching(unittest.TestCase):
         expected = 30
         self.assertEqual(expected, actual)
 
+    # ------- speed tests ------------------- #
     def test_read_and_find_speed_from_db(self):
         print('start reading ...')
         s = datetime.datetime.now()

@@ -2,12 +2,12 @@ from src import program
 from src.data.rule.done.rules_done_arrear_trades_between_last_3_to_12_months import \
     RuleDoneArrearTradesBetweenLast3To12Months
 from src.data.rule.done.rules_done_arrear_trades_of_last_3_months import RuleDoneArrearTradesOfLast3Months
-from src.data.rule.done.rules_done_trades_average_delay_days import RuleDoneTradesAverageDelayDays
+from src.data.rule.done.rules_done_trades_average_delay_days_ratio import RuleDoneTradesAverageDelayDaysRatio
 from src.data.rule.done.rules_done_past_due_trades_between_last_3_to_12_months import \
     RuleDonePastDueTradesBetweenLast3To12Months
 from src.data.rule.done.rules_done_past_due_trades_of_last_3_months import RuleDonePastDueTradesOfLast3Months
 from src.data.rule.done.rules_done_timely_trades_of_last_3_months import RuleDoneTimelyTradesBetweenLast3To12Months
-from src.data.rule.done.rules_done_trades_average_total_amount import RuleDoneTradesAverageTotalAmount
+from src.data.rule.done.rules_done_trades_total_balance_ratio import RuleDoneTradesTotalBalanceRatio
 from src.data.rule.rule_model import RuleModel
 
 
@@ -182,55 +182,55 @@ def import_rules_done_timely_trades_of_last_3_months():
 
 def import_rules_done_trades_total_amount():
     # SDealAmountRatio = 0	00	V1201P0	کاربر تعاملی نداشته است
-    rule = RuleDoneTradesAverageTotalAmount()
+    rule = RuleDoneTradesTotalBalanceRatio()
     rule.drop_collection()
     rule.save(creat_rule(rule, 'V1201P0', 0, 0, 0, 'کاربر تعاملی نداشته است'))
 
     # 0.001 <= SDealAmountRatio ≤ 0.5	10	V1202P10	نسبت بین 0.001 و 0.5 می‌باشد
-    rule = RuleDoneTradesAverageTotalAmount()
+    rule = RuleDoneTradesTotalBalanceRatio()
     rule.save(creat_rule(rule, 'V1202P10', 0.001, 0.5, 10, 'نسبت بین 0.001 و 0.5 می‌باشد'))
 
     # 0.501 <= SDealAmountRatio ≤ 1	20	V1203P20	نسبت بین 0.501 و 1 می‌باشد
-    rule = RuleDoneTradesAverageTotalAmount()
+    rule = RuleDoneTradesTotalBalanceRatio()
     rule.save(creat_rule(rule, 'V1203P20', 0.501, 1, 20, 'نسبت بین 0.501 و 1 می‌باشد'))
 
     # 1.001 <= SDealAmountRatio ≤ 1.5	30	V1204P30	نسبت بین 1.001 و 1.5 می‌باشد
-    rule = RuleDoneTradesAverageTotalAmount()
+    rule = RuleDoneTradesTotalBalanceRatio()
     rule.save(creat_rule(rule, 'V1204P30', 1.001, 1.5, 30, 'نسبت بین 1.001 و 1.5 می‌باشد'))
 
     # 1.501 <= SDealAmountRatio ≤ 2	40	V1205P40	نسبت بین 1.501 و 2 می‌باشد
-    rule = RuleDoneTradesAverageTotalAmount()
+    rule = RuleDoneTradesTotalBalanceRatio()
     rule.save(creat_rule(rule, 'V1205P40', 1.501, 2, 40, 'نسبت بین 1.501 و 2 می‌باشد'))
 
     # SDealAmountRatio >= 2.001	50	V1206P50	نسبت بیش از 2 می‌باشد
-    rule = RuleDoneTradesAverageTotalAmount()
+    rule = RuleDoneTradesTotalBalanceRatio()
     rule.save(creat_rule(rule, 'V1206P50', 2.001, 999, 50, 'نسبت بیش از 2 می‌باشد'))
 
 
 def import_rules_done_trades_average_delay_days():
     # AverageDelayRatio = 0	20	T2801P20	کاربر در انجام تعاملات تاخیر نداشته است
-    rule = RuleDoneTradesAverageDelayDays()
+    rule = RuleDoneTradesAverageDelayDaysRatio()
     rule.drop_collection()
     rule.save(creat_rule(rule, 'T2801P20', 0, 0, 20, 'کاربر در انجام تعاملات تاخیر نداشته است'))
 
     # 0.001 <= AverageDelayRatio ≤ 0.5	10	T2802P10	نسبت بین 0.001 و 0.5 می‌باشد
-    rule = RuleDoneTradesAverageDelayDays()
+    rule = RuleDoneTradesAverageDelayDaysRatio()
     rule.save(creat_rule(rule, 'T2802P10', 0.001, 0.5, 10, 'نسبت بین 0.001 و 0.5 می‌باشد'))
 
     # 0.501 <= AverageDelayRatio ≤ 1	00	T2803P0	نسبت بین 0.501 و 1 می‌باشد
-    rule = RuleDoneTradesAverageDelayDays()
+    rule = RuleDoneTradesAverageDelayDaysRatio()
     rule.save(creat_rule(rule, 'T2803P0', 0.501, 1.0, 0, 'نسبت بین 0.501 و 1 می‌باشد'))
 
     # 1.001 <= AverageDelayRatio ≤ 1.5	-10	T2804N10	نسبت بین 1.001 و 1.5 می‌باشد
-    rule = RuleDoneTradesAverageDelayDays()
+    rule = RuleDoneTradesAverageDelayDaysRatio()
     rule.save(creat_rule(rule, 'T2804N10', 1.001, 1.5, -10, 'نسبت بین 1.001 و 1.5 می‌باشد'))
 
     # 1.501 <= AverageDelayRatio ≤ 2	-20	T2805N20	نسبت بین 1.501 و 2 می‌باشد
-    rule = RuleDoneTradesAverageDelayDays()
+    rule = RuleDoneTradesAverageDelayDaysRatio()
     rule.save(creat_rule(rule, 'T2805N20', 1.501, 2, -20, 'نسبت بین 1.501 و 2 می‌باشد'))
 
     # AverageDelayRatio >= 2.001	-30	T2806N30	نسبت بیش از 2 می‌باشد
-    rule = RuleDoneTradesAverageDelayDays()
+    rule = RuleDoneTradesAverageDelayDaysRatio()
     rule.save(creat_rule(rule, 'T2806N30', 2.001, 999, 0, 'نسبت بیش از 2 می‌باشد'))
 
 

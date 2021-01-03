@@ -13,7 +13,7 @@ class DoneTrade(mongoengine.Document):
     past_due_trades_count_between_last_3_to_12_months = mongoengine.IntField()
     arrear_trades_count_between_last_3_to_12_months = mongoengine.IntField()
 
-    trades_total_amount = mongoengine.DecimalField()
+    trades_total_balance = mongoengine.DecimalField()
 
     total_delay_days = mongoengine.IntField()
 

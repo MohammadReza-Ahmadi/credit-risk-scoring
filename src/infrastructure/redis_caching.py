@@ -9,8 +9,8 @@ from data.rule.done.rules_done_past_due_trades_between_last_3_to_12_months impor
 from data.rule.done.rules_done_past_due_trades_of_last_3_months import RuleDonePastDueTradesOfLast3Months
 from data.rule.done.rules_done_timely_trades_between_last_3_to_12_months import RuleDoneTimelyTradesOfLast3Months
 from data.rule.done.rules_done_timely_trades_of_last_3_months import RuleDoneTimelyTradesBetweenLast3To12Months
-from data.rule.done.rules_done_trades_average_delay_days import RuleDoneTradesAverageDelayDays
-from data.rule.done.rules_done_trades_average_total_amount import RuleDoneTradesAverageTotalAmount
+from data.rule.done.rules_done_trades_average_delay_days_ratio import RuleDoneTradesAverageDelayDaysRatio
+from data.rule.done.rules_done_trades_total_balance_ratio import RuleDoneTradesTotalBalanceRatio
 from infrastructure.constants import redis_password, SET_RULES_DONE_ARREAR_TRADES_BETWEEN_LAST_3_TO_12_MONTHS, rules_max_val, rules_min_val, \
     SET_RULES_DONE_ARREAR_TRADES_OF_LAST_3_MONTHS, SET_RULES_DONE_PAST_DUE_TRADES_OF_LAST_3_MONTHS, \
     SET_RULES_DONE_PAST_DUE_TRADES_BETWEEN_LAST_3_TO_12_MONTHS, SET_RULES_DONE_TIMELY_TRADES_OF_LAST_3_MONTHS, \
@@ -117,7 +117,7 @@ class RedisCaching:
             self.rds.delete(SET_RULES_DONE_TRADES_AVERAGE_DELAY_DAYS)
 
         if not bool(self.rds.zcount(SET_RULES_DONE_TRADES_AVERAGE_DELAY_DAYS, rules_min_val, rules_max_val)):
-            rules: List[RuleDoneTradesAverageDelayDays] = RuleDoneTradesAverageDelayDays.objects()
+            rules: List[RuleDoneTradesAverageDelayDaysRatio] = RuleDoneTradesAverageDelayDaysRatio.objects()
             rdict = {}
             for r in rules:
                 rdict.__setitem__(r.score, r.max)
@@ -129,7 +129,7 @@ class RedisCaching:
             self.rds.delete(SET_RULES_DONE_TRADES_AVERAGE_TOTAL_AMOUNT)
 
         if not bool(self.rds.zcount(SET_RULES_DONE_TRADES_AVERAGE_TOTAL_AMOUNT, rules_min_val, rules_max_val)):
-            rules: List[RuleDoneTradesAverageTotalAmount] = RuleDoneTradesAverageTotalAmount.objects()
+            rules: List[RuleDoneTradesTotalBalanceRatio] = RuleDoneTradesTotalBalanceRatio.objects()
             rdict = {}
             for r in rules:
                 rdict.__setitem__(r.score, r.max)

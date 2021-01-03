@@ -3,7 +3,7 @@ import mongoengine
 from src.data.rule.rule_model import RuleModel
 
 
-class RuleDoneTradesAverageDelayDays(mongoengine.Document, RuleModel):
+class RuleDoneTradesTotalBalanceRatio(mongoengine.Document, RuleModel):
     # code = mongoengine.StringField()
     min = mongoengine.FloatField()
     max = mongoengine.FloatField()
@@ -12,6 +12,5 @@ class RuleDoneTradesAverageDelayDays(mongoengine.Document, RuleModel):
 
     meta = {
         'db_alias': 'core',
-        'collection': 'rulesDoneTradesAverageDelayDays'
+        'collection': 'rulesDoneTradesAverageTotalBalance'
     }
-

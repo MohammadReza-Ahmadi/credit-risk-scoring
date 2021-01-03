@@ -38,7 +38,7 @@ class TestImportRandomBulkData(unittest.TestCase):
             dt.past_due_trades_count_between_last_3_to_12_months = get_random_digits_str(2)
             dt.arrear_trades_count_of_last_3_months = get_random_digits_str(2)
             dt.arrear_trades_count_between_last_3_to_12_months = get_random_digits_str(2)
-            dt.trades_total_amount = get_random_digits_str(9)
+            dt.trades_total_balance = get_random_digits_str(9)
             dt.total_delay_days = get_random_digits_str(2)
             gs.save_document(dt)
             print("flowing document is saved: ", dt.to_json())
