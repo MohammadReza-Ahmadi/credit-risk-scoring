@@ -2,12 +2,12 @@ from src import program
 from src.data.rule.done.rules_done_arrear_trades_between_last_3_to_12_months import \
     RuleDoneArrearTradesBetweenLast3To12Months
 from src.data.rule.done.rules_done_arrear_trades_of_last_3_months import RuleDoneArrearTradesOfLast3Months
-from src.data.rule.done.rules_done_trades_average_delay_days_ratio import RuleDoneTradesAverageDelayDaysRatio
+from src.data.rule.done.rules_done_trades_average_delay_days_ratios import RuleDoneTradesAverageDelayDaysRatio
 from src.data.rule.done.rules_done_past_due_trades_between_last_3_to_12_months import \
     RuleDonePastDueTradesBetweenLast3To12Months
 from src.data.rule.done.rules_done_past_due_trades_of_last_3_months import RuleDonePastDueTradesOfLast3Months
 from src.data.rule.done.rules_done_timely_trades_of_last_3_months import RuleDoneTimelyTradesBetweenLast3To12Months
-from src.data.rule.done.rules_done_trades_total_balance_ratio import RuleDoneTradesTotalBalanceRatio
+from src.data.rule.done.rules_done_trades_total_balance_ratios import RuleDoneTradesTotalBalanceRatio
 from src.data.rule.rule_model import RuleModel
 
 
@@ -180,7 +180,7 @@ def import_rules_done_timely_trades_of_last_3_months():
         creat_rule(rule, 'H0605P40', 4, 999, 40, 'کاربر در سه ماه گذشته بیش از 3 تعامل موفق با سایر کاربران داشته است'))
 
 
-def import_rules_done_trades_total_amount():
+def import_rules_done_trades_total_balance_ratios():
     # SDealAmountRatio = 0	00	V1201P0	کاربر تعاملی نداشته است
     rule = RuleDoneTradesTotalBalanceRatio()
     rule.drop_collection()
@@ -207,7 +207,7 @@ def import_rules_done_trades_total_amount():
     rule.save(creat_rule(rule, 'V1206P50', 2.001, 999, 50, 'نسبت بیش از 2 می‌باشد'))
 
 
-def import_rules_done_trades_average_delay_days():
+def import_rules_done_trades_average_delay_days_ratios():
     # AverageDelayRatio = 0	20	T2801P20	کاربر در انجام تعاملات تاخیر نداشته است
     rule = RuleDoneTradesAverageDelayDaysRatio()
     rule.drop_collection()
@@ -251,5 +251,5 @@ if __name__ == '__main__':
     import_rules_done_past_due_trades_of_last_3_months()
     import_rules_done_timely_trades_between_last_3_to_12_months()
     import_rules_done_timely_trades_of_last_3_months()
-    import_rules_done_trades_average_delay_days()
-    import_rules_done_trades_total_amount()
+    import_rules_done_trades_average_delay_days_ratios()
+    import_rules_done_trades_total_balance_ratios()

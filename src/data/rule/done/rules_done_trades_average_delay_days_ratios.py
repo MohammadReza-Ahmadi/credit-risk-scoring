@@ -12,6 +12,6 @@ class RuleDoneTradesAverageDelayDaysRatio(mongoengine.Document, RuleModel):
 
     meta = {
         'db_alias': 'core',
-        'collection': 'rulesDoneTradesAverageDelayDays'
+        'collection': 'rulesDoneTradesAverageDelayDaysRatios'
     }
 

@@ -2,7 +2,8 @@ import mongoengine
 
 # from src.infrastructure.redis_caching import cache_rules
 # from infrastructure.redis_caching import RedisCaching
-from infrastructure.backups.redis_caching_backup_3 import cache_rules
+# from infrastructure.caching.redis_caching import cache_rules
+from infrastructure.caching.redis_caching import RedisCaching
 
 
 def create_db_connection():
@@ -12,7 +13,7 @@ def create_db_connection():
 def launch_app():
     create_db_connection()
     print("credit-scoring mongodb connection is established.")
-    cache_rules()
+    # RedisCaching().cache_rules()
 
 
 if __name__ == '__main__':

@@ -7,7 +7,7 @@ from redis import StrictRedis
 
 from data.rule.done.rules_done_arrear_trades_between_last_3_to_12_months import RuleDoneArrearTradesBetweenLast3To12Months
 from infrastructure.constants import SET_RULES_DONE_ARREAR_TRADES_BETWEEN_LAST_3_TO_12_MONTHS
-from infrastructure.redis_caching import RedisCaching
+from infrastructure.caching.redis_caching import RedisCaching
 # from infrastructure.redis_caching import RedisCaching
 from infrastructure.backups.redis_caching_backup_3 import get_score_of_rules_done_arrear_trades_between_last_3_to_12_months, get_redis_connection
 from program import create_db_connection
@@ -143,7 +143,7 @@ class TestRedisCaching(unittest.TestCase):
     def test_read_and_find_speed_from_db(self):
         print('start reading ...')
         s = datetime.datetime.now()
-        for i in range(1000):
+        for i in range(10000):
             rules: List[RuleDoneArrearTradesBetweenLast3To12Months] = RuleDoneArrearTradesBetweenLast3To12Months.objects()
             for r in rules:
                 if r.min <= 7 <= r.max:
@@ -182,7 +182,7 @@ class TestRedisCaching(unittest.TestCase):
         rc = RedisCaching()
         s = datetime.datetime.now()
         # rc.cache_rules()
-        for i in range(1000):
+        for i in range(10000):
             score = rc.get_score_of_rules_done_arrear_trades_between_last_3_to_12_months(7)
 
         e = datetime.datetime.now()

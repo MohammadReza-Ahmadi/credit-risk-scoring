@@ -1,6 +1,17 @@
 import random
 import string
 
+from data.rule.rule_model import RuleModel
+
+
+def creat_rule(rule: RuleModel, code: str, min_val, max_val, score: int, desc: str):
+    rule.code = code
+    rule.min = min_val
+    rule.max = max_val
+    rule.score = score
+    rule.desc = desc
+    return rule
+
 
 def filter_dict(dic: dict, filtered_item) -> dict:
     nd = {}
