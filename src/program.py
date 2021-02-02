@@ -7,7 +7,15 @@ import mongoengine
 
 
 def create_db_connection():
-    mongoengine.register_connection('core', 'scoring-engine')
+    mongoengine.register_connection(
+        alias='core',
+        db='scoring-engine',
+        host='127.0.0.1',
+        port=27017,
+        username='admin',
+        password='admin',
+        authentication_source='admin'
+    )
 
 
 def launch_app():

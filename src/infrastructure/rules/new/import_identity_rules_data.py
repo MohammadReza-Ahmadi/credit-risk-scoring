@@ -9,13 +9,14 @@ from src.infrastructure.scoring_enums import ProfileMilitaryServiceStatusEnum
 def import_rule_identity_master():
     # Delete all histories(H) rules
     l2_rules: [Rule] = Rule.objects(Q(parent='I'))
-    for r in l2_rules:
-        l3_rules: [Rule] = Rule.objects(Q(parent=r.code))
-        l3_rules.delete()
-    l2_rules.delete()
-    l1_rule = Rule.objects(Q(code='I'))
-    l1_rule.delete()
-    print('Identities(I) rules are deleted.')
+    if len(l2_rules) > 0:
+        for r in l2_rules:
+            l3_rules: [Rule] = Rule.objects(Q(parent=r.code))
+            l3_rules.delete()
+        l2_rules.delete()
+        l1_rule = Rule.objects(Q(code='I'))
+        l1_rule.delete()
+        print('Identities(I) rules are deleted.')
     # define Identities(I)' rules master: level 1
     rule = Rule()
     rule = create_new_rule(rule, 1, None, 'I', 'اطلاعات هویتی', 10, 100)

@@ -112,28 +112,42 @@ class RedisCachingRulesProfiles:
     # ---------------------------- read cache methods ----------------------------------- #
     def get_score_of_rules_profile_has_kycs_i1(self, has_kyc):
         scores = self.rds.zrangebyscore(SET_RULES_PROFILE_HAS_KYCS, int(has_kyc), rules_max_val)
+        if not bool(scores):
+            print('REDIS has not cached [{}] !'.format('rules_profile_has_kycs_i1'))
         return get_score_from_dict(scores)
 
     def get_score_of_rules_profile_address_verifications_i4(self, address_verification):
         scores = self.rds.zrangebyscore(SET_RULES_PROFILE_ADDRESS_VERIFICATIONS, int(address_verification), rules_max_val)
+        if not bool(scores):
+            print('REDIS has not cached [{}] !'.format('rules_profile_address_verifications_i4'))
         return get_score_from_dict(scores)
 
     def get_score_of_rules_profile_membership_days_counts_h5(self, membership_days_count):
         scores = self.rds.zrangebyscore(SET_RULES_PROFILE_MEMBERSHIP_DAYS_COUNTS, membership_days_count, rules_max_val)
+        if not bool(scores):
+            print('REDIS has not cached [{}] !'.format('rules_profile_membership_days_counts_h5'))
         return get_score_from_dict(scores)
 
     def get_score_of_rules_profile_military_service_status_i2(self, military_service_status: ProfileMilitaryServiceStatusEnum):
         scores = self.rds.zrangebyscore(SET_RULES_PROFILE_MILITARY_SERVICE_STATUS, military_service_status.value, rules_max_val)
+        if not bool(scores):
+            print('REDIS has not cached [{}] !'.format('rules_profile_military_service_status_i2'))
         return get_score_from_dict(scores)
 
     def get_score_of_rules_profile_recommended_to_others_counts_h8(self, recommended_to_others_count):
         scores = self.rds.zrangebyscore(SET_RULES_PROFILE_RECOMMENDED_TO_OTHERS_COUNTS, recommended_to_others_count, rules_max_val)
+        if not bool(scores):
+            print('REDIS has not cached [{}] !'.format('rules_profile_recommended_to_others_counts_h8'))
         return get_score_from_dict(scores)
 
     def get_score_of_rules_profile_sim_card_ownerships_i3(self, sim_card_ownership):
         scores = self.rds.zrangebyscore(SET_RULES_PROFILE_SIM_CARD_OWNERSHIPS, int(sim_card_ownership), rules_max_val)
+        if not bool(scores):
+            print('REDIS has not cached [{}] !'.format('rules_profile_sim_card_ownerships_i3'))
         return get_score_from_dict(scores)
 
     def get_score_of_rules_profile_star_counts_avgs_h9(self, star_count_avg):
         scores = self.rds.zrangebyscore(SET_RULES_PROFILE_STAR_COUNTS_AVGS, star_count_avg, rules_max_val)
+        if not bool(scores):
+            print('REDIS has not cached [{}] !'.format('rules_profile_star_counts_avgs_h9'))
         return get_score_from_dict(scores)
