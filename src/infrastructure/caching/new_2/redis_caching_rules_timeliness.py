@@ -7,14 +7,11 @@ from redis import StrictRedis
 # from data.rule.profile.rules_profile_recommended_to_others_counts import RuleProfileRecommendedToOthersCount
 # from data.rule.profile.rules_profile_sim_card_ownerships import RuleProfileSimCardOwnership
 # from data.rule.profile.rules_profile_star_counts_avgs import RuleProfileStarCountAvg
-from data.rule.rules import Rule
+from data.rules import Rule
 from infrastructure.constants import rules_max_val, rules_min_val, \
-    SET_RULES_PROFILE_MEMBERSHIP_DAYS_COUNTS, \
-    H5_RULES_PROFILE_MEMBERSHIP_DAYS_COUNTS, SET_RULES_PROFILE_RECOMMENDED_TO_OTHERS_COUNTS, H8_RULES_PROFILE_RECOMMENDED_TO_OTHERS_COUNTS, \
-    SET_RULES_PROFILE_STAR_COUNTS_AVGS, H9_RULES_PROFILE_STAR_COUNTS_AVGS, SET_RULES_DONE_PAST_DUE_TRADES_OF_LAST_3_MONTHS, \
+    SET_RULES_DONE_PAST_DUE_TRADES_OF_LAST_3_MONTHS, \
     SET_RULES_DONE_PAST_DUE_TRADES_BETWEEN_LAST_3_TO_12_MONTHS, T23_RULES_DONE_PAST_DUE_TRADES_BETWEEN_LAST_3_TO_12_MONTHS, \
-    T22_RULES_DONE_PAST_DUE_TRADES_OF_LAST_3_MONTHS, SET_RULES_UNDONE_UNDUE_TRADES_COUNTS, H10_RULES_UNDONE_UNDUE_TRADES_COUNTS, \
-    SET_RULES_LOAN_TOTAL_COUNTS, H11_RULES_LOAN_TOTAL_COUNTS
+    T22_RULES_DONE_PAST_DUE_TRADES_OF_LAST_3_MONTHS
 from service.util import get_score_from_dict, add_rule_to_dict
 
 

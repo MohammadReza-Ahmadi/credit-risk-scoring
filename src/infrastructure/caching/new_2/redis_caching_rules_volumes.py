@@ -1,7 +1,7 @@
 from mongoengine.queryset.visitor import Q
 from redis import StrictRedis
 
-from data.rule.rules import Rule
+from data.rules import Rule
 from infrastructure.constants import rules_max_val, rules_min_val, \
     SET_RULES_DONE_PAST_DUE_TRADES_OF_LAST_3_MONTHS, \
     T22_RULES_DONE_PAST_DUE_TRADES_OF_LAST_3_MONTHS, SET_RULES_DONE_TRADES_AVERAGE_TOTAL_BALANCE_RATIOS, \

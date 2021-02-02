@@ -7,7 +7,7 @@ from redis import StrictRedis
 # from data.rule.profile.rules_profile_recommended_to_others_counts import RuleProfileRecommendedToOthersCount
 # from data.rule.profile.rules_profile_sim_card_ownerships import RuleProfileSimCardOwnership
 # from data.rule.profile.rules_profile_star_counts_avgs import RuleProfileStarCountAvg
-from data.rule.rules import Rule
+from data.rules import Rule
 from infrastructure.constants import rules_max_val, rules_min_val, \
     SET_RULES_PROFILE_HAS_KYCS, SET_RULES_PROFILE_ADDRESS_VERIFICATIONS, SET_RULES_PROFILE_MILITARY_SERVICE_STATUS, \
     SET_RULES_PROFILE_SIM_CARD_OWNERSHIPS, \

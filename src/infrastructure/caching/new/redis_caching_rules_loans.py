@@ -1,7 +1,7 @@
 from mongoengine.queryset.visitor import Q
 from redis import StrictRedis
 
-from data.rule.rules import Rule
+from data.rules import Rule
 from infrastructure.constants import V20_RULES_LOAN_ARREAR_TOTAL_BALANCE_RATIOS, T34_RULES_LOAN_ARREAR_TOTAL_COUNTS, \
     V16_RULES_LOAN_MONTHLY_INSTALLMENTS_TOTAL_BALANCE_RATIOS, \
     H11_RULES_LOAN_TOTAL_COUNTS, V18_RULES_LOAN_OVERDUE_TOTAL_BALANCE_RATIOS, V19_RULES_LOAN_PAST_DUE_TOTAL_BALANCE_RATIOS, \

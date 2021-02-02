@@ -1,7 +1,7 @@
 from mongoengine.queryset.visitor import Q
 from redis import StrictRedis
 
-from data.rule.rules import Rule
+from data.rules import Rule
 from infrastructure.constants import rules_max_val, rules_min_val, \
     SET_RULES_PROFILE_MEMBERSHIP_DAYS_COUNTS, \
     H5_RULES_PROFILE_MEMBERSHIP_DAYS_COUNTS, SET_RULES_PROFILE_RECOMMENDED_TO_OTHERS_COUNTS, H8_RULES_PROFILE_RECOMMENDED_TO_OTHERS_COUNTS, \

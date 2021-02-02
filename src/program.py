@@ -7,7 +7,7 @@ import mongoengine
 
 
 def create_db_connection():
-    mongoengine.register_connection('core', 'credit-scoring')
+    mongoengine.register_connection('core', 'scoring-engine')
 
 
 def launch_app():

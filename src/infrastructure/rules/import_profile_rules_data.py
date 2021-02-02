@@ -5,8 +5,7 @@ from data.rule.profile.rules_profile_military_service_status import RuleProfileM
 from data.rule.profile.rules_profile_recommended_to_others_counts import RuleProfileRecommendedToOthersCount
 from data.rule.profile.rules_profile_sim_card_ownerships import RuleProfileSimCardOwnership
 from data.rule.profile.rules_profile_star_counts_avgs import RuleProfileStarCountAvg
-from data.rule.rules import Rule
-from infrastructure.constants import rules_max_val, rules_max_val
+from infrastructure.constants import rules_max_val
 from service.util import create_rule_by_status_code, create_rule
 from src import program
 from src.infrastructure.scoring_enums import ProfileMilitaryServiceStatusEnum

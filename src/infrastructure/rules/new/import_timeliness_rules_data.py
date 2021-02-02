@@ -1,6 +1,6 @@
 from mongoengine.queryset.visitor import Q
 
-from data.rule.rules import Rule
+from data.rules import Rule
 from infrastructure.constants import rules_max_val
 from service.util import create_new_rule
 from src import program

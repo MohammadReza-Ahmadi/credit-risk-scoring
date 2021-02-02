@@ -1,7 +1,7 @@
 from mongoengine.queryset.visitor import Q
 from redis import StrictRedis
 
-from data.rule.rules import Rule
+from data.rules import Rule
 from infrastructure.constants import IDENTITIES, \
     SET_RULES_IDENTITIES_MASTER, SET_RULES_HISTORIES_MASTER, HISTORIES, SET_RULES_VOLUMES_MASTER, VOLUMES, SET_RULES_TIMELINESS_MASTER, TIMELINESS, \
     PERCENT, SCORE

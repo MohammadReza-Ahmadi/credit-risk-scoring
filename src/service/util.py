@@ -4,7 +4,7 @@ import string
 from mongoengine.queryset.visitor import Q
 
 from data.rule.rule_model import RuleModel
-from data.rule.rules import Rule
+from data.rules import Rule
 from infrastructure.constants import score_deliminator, NORMALIZATION_MAX_SCORE, ONE_HUNDRED
 
 
